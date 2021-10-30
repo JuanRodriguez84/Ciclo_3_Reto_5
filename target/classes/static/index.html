@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Skate</title>
+        <style>
+        </style>
+
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>Reto4</title>
+        <meta name="viewport" content="width=device-width"/>
+        <base href="/"/>
+        <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+        <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+    </head>
+    <body style="background-color: #353232;">
+        </br>
+        </br>
+        <h1 style="text-align: center; color: rgb(33, 194, 113)">SKATEBOARD</h1> 
+        <div class="container unauthenticated">
+            </br>
+            </br>
+            <p style="color:rgb(231, 231, 15);"> Para iniciar sesión con GitHub : <a href="/oauth2/authorization/github">click here</a>
+        </div>
+        <div class="container authenticated" style="display:none">
+            <p style="color:rgb(231, 231, 15);"> Logged in as: <span id="user"></span>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+    $.get("/user", function (data) {
+        $("#user").html(data.name);
+        $(".unauthenticated").hide()
+        $(".authenticated").show()
+    });
+    </script>
+
+</html>
